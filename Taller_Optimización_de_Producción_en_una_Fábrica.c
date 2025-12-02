@@ -6,7 +6,7 @@
 #define MAX_PROD 5        // Cantidad de productos (Requerimiento: 5 productos)
 #define LONG_NOMBRE 50    // Longitud máxima para nombres
 
-// --- Prototipos de funciones (Programación Modular) ---
+// Prototipos de funciones (Programación Modular)
 // Se usan punteros (*tiempos, *recursos) para modificar los arreglos originales
 void ingresarProductos(char nombres[][LONG_NOMBRE], float *tiempos, float *recursos, int *demandas);
 void mostrarInventario(char nombres[][LONG_NOMBRE], float *tiempos, float *recursos, int *demandas);
@@ -15,7 +15,7 @@ void editarProducto(char nombres[][LONG_NOMBRE], float *tiempos, float *recursos
 void eliminarProducto(char nombres[][LONG_NOMBRE], float *tiempos, float *recursos, int *demandas);
 void calcularViabilidad(float *tiempos, float *recursos, int *demandas);
 
-// --- Función Auxiliar de Validación de Texto ---
+// Función Auxiliar de Validación de Texto
 // Retorna 1 si el texto solo contiene letras y espacios, 0 si contiene números o símbolos
 int esNombreValido(char *nombre) {
     if (strlen(nombre) == 0) return 0; // No aceptar vacíos
@@ -28,7 +28,7 @@ int esNombreValido(char *nombre) {
 }
 
 int main() {
-    // Implementación de ARREGLOS PARALELOS (Sustituto de Structs)
+    // Implementación de ARREGLOS PARALELOS
     char nombres[MAX_PROD][LONG_NOMBRE];
     float tiempos[MAX_PROD] = {0};   
     float recursos[MAX_PROD] = {0};  
@@ -137,7 +137,7 @@ void mostrarInventario(char nombres[][LONG_NOMBRE], float *tiempos, float *recur
     }
 }
 
-// Lógica de búsqueda manual (Lineal) - Requisito del PDF
+// Lógica de búsqueda manual (Lineal)
 int buscarProducto(char nombres[][LONG_NOMBRE], char *nombreBuscado) {
     for (int i = 0; i < MAX_PROD; i++) {
         // strcmp retorna 0 si las cadenas son idénticas
@@ -211,7 +211,7 @@ void eliminarProducto(char nombres[][LONG_NOMBRE], float *tiempos, float *recurs
     }
 }
 
-// 4. Cálculo de Viabilidad (Requerimiento Principal)
+// 4. Cálculo de Viabilidad
 void calcularViabilidad(float *tiempos, float *recursos, int *demandas) {
     float tiempoDisponible, recursosDisponibles;
     float tiempoTotalRequerido = 0;
@@ -259,4 +259,5 @@ void calcularViabilidad(float *tiempos, float *recursos, int *demandas) {
     if (esViable) {
         printf("=> [EXITO] La produccion es totalmente VIABLE con los recursos actuales.\n");
     }
+
 }
